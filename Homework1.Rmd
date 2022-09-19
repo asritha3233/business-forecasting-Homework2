@@ -1,0 +1,84 @@
+---
+title: "Homework1"
+output: html_document
+date: "2022-09-19"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r}
+library(readxl)
+setwd("~/USA/bf assignment")
+data <- read_excel("./Typical_Employee_Survey_Data.xlsx",col_names = TRUE)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+names(data)
+```
+```{r}
+ncol(data)
+
+nrow(data)
+dim(data)
+head(data)
+tail(data)
+str(data)
+class(data$Gender)
+data$Gender <- as.factor(data$Gender)
+class(data$Gender)
+data$Gender <- as.factor(data$Gender)
+class(data$Gender)
+str(data)      
+data$Age
+data[2]
+data[c("Age")]
+data[2:3]
+data[c("Age","Gender")]
+data[2,]
+data[2:3,c("Age")]
+#data[2:3,2:]
+data$Gender
+table(data$Gender)
+table(data$Age,data$Gender)
+data[order(data$Age),]
+par(mar=c(1,1,1,1))
+barplot(data$Age)
+pie(data$Age)
+stem(data$Age)
+hist(data$Age)
+boxplot(data$Age)
+boxplot(data$Age,data$Gender)
+min(data$Age)
+StatRange = max(data$Age) - min(data$Age)
+mean(data$Age)
+sd(data$Age)
+var(data$Age)
+sqrt(var(data$Age))
+fivenum(data$Age)
+IQR(data$Age)
+quantile(data$Age)
+summary(data$Age)
+boxplot.stats(data$Age)
+boxplot.stats(data$Age)$out
+summary(data)
+by(data$Age,data$Gender,mean)
+by(data$Age,data$Gender,sd)
+by(data$Age,data$Gender,summary)
+aggregate(data$Age,list("Type" = data$Gender),median)
+aggregate(data$Age,list("Type" = data$Gender),summary)
+
+```
